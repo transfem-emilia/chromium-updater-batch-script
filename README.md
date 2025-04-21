@@ -6,6 +6,9 @@ So this one is pretty simple, it's a batch script, this is specifically for the 
 Windows 64-Bit
 Chromium Stable By Hibbiki From [Woolyss](https://chromium.woolyss.com/#windows-64-bit)
 
+## Where to download
+You can download it from the code or the releases tab of this repo.
+
 ## How To Install
 1. Edit the script and replace any instances of `&YOURPATH&` with the file path for chromium.
 2. Place the batch script in `C:\Users\your username\AppData\Local\Chromium\` or wherever you have chromium installed.
