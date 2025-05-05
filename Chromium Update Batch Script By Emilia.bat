@@ -29,9 +29,7 @@ if "%LATEST_VERSION%"=="" (
     exit /b
 )
 
-rem === Normalize version numbers (keep major.minor.patch) ===
-for /f "tokens=1-3 delims=." %%a in ("%CURRENT_VERSION%") do set CURRENT_VERSION_NORMALIZED=%%a.%%b.%%c
-for /f "tokens=1-3 delims=." %%a in ("%LATEST_VERSION%") do set LATEST_VERSION_NORMALIZED=%%a.%%b.%%c
+
 
 rem === Create a timestamp for the log ===
 for /f "tokens=1-4 delims=/- " %%a in ('date /t') do set DATE=%%d-%%b-%%c
@@ -43,11 +41,9 @@ rem === Log the version check ===
 echo %TIMESTAMP% - Checking version...
 echo %TIMESTAMP% - Current version: %CURRENT_VERSION% 
 echo %TIMESTAMP% - Latest version: %LATEST_VERSION%
-echo %TIMESTAMP% - Normalized current version: %CURRENT_VERSION_NORMALIZED%
-echo %TIMESTAMP% - Normalized latest version: %LATEST_VERSION_NORMALIZED%
 
 rem === Compare versions and log actions ===
-if "%CURRENT_VERSION_NORMALIZED%" NEQ "%LATEST_VERSION_NORMALIZED%" (
+if "%CURRENT_VERSION%" NEQ "%LATEST_VERSION%" (
     echo %TIMESTAMP% - Older version detected. Opening Woolyss website for download...
     start https://chromium.woolyss.com/#windows-64-bit
 ) else (
